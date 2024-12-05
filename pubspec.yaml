@@ -28,5 +28,6 @@ flutter:
 
 
   assets: 
-    - assets/images/pets.png
-  
+    - assets/images/pets.png 
+    - assets/images/pets_no_bg.png
+    
