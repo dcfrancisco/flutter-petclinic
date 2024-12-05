@@ -45,12 +45,22 @@ class _FindOwnerPageState extends State<FindOwner> {
     return Scaffold(
       body: Column(
         children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Find Owner',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               controller: _searchController,
               decoration: const InputDecoration(
-                labelText: 'Find Owner',
+                labelText: 'Last Name',
                 hintText: 'Search for an owner',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.search),
