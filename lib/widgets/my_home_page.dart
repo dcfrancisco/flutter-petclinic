@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_petclinic/pages/find_owner.dart';
 import 'package:flutter_petclinic/pages/home.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Center(child: Text('Find Orner')),
+    FindOwner(),
     Center(child: Text('Veterinarian')),
   ];
 
