@@ -38,9 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Owner'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.search_outlined),
+            label: 'Owner',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.wifi_lock_rounded),
             label: 'Veterinarian',
           ),
         ],
