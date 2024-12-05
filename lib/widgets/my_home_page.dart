@@ -13,9 +13,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static final List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    FindOwner(),
-    Center(child: Text('Veterinarian')),
+    const HomePage(),
+    const FindOwner(),
+    const Center(child: Text('Veterinarian')),
   ];
 
   int _selectedIndex = 0;
@@ -31,10 +31,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const FlutterLogo(size: 25),
+            const SizedBox(width: 5),
+            Text(widget.title),
+          ],
+        ),
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

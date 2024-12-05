@@ -8,14 +8,13 @@ class PetClinicApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Flutter PetClinic",
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 101, 123, 102),
         ),
         useMaterial3: true,
       ),
-      home: MyHomePage(title: "Flutter PetClinic"),
+      home: const MyHomePage(title: "PetClinic"),
     );
   }
 }
