@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               decoration: BoxDecoration(
                 color: Colors.white54,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(5),
               ),
               padding: const EdgeInsets.all(4),
               child: const FlutterLogo(size: 25),
