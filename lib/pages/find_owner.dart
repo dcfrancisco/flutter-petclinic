@@ -13,7 +13,25 @@ class _FindOwnerPageState extends State {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Find Owner'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _searchController,
+              decoration: const InputDecoration(
+                labelText: 'Search Owner',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            // Add more widgets here
+          ],
+        ),
+      ),
+    );
   }
 }
