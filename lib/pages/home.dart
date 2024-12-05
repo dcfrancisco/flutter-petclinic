@@ -5,7 +5,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset('assets/images/pets.png', width: 300, height: 200),
+        child: Image.asset(
+          'assets/images/pets_no_bg.png',
+          width: 300,
+          height: 200,
+        ),
       ),
     );
   }
