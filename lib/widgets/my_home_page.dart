@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_petclinic/pages/home.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -11,7 +12,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static final List<Widget> _widgetOptions = <Widget>[
-    Center(child: Text('Home Screen')),
+    HomePage(),
     Center(child: Text('Find Orner')),
     Center(child: Text('Veterinarian')),
   ];
