@@ -34,9 +34,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const FlutterLogo(size: 25),
-            const SizedBox(width: 5),
-            Text(widget.title),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white54,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              padding: const EdgeInsets.all(4),
+              child: const FlutterLogo(size: 25),
+            ),
+            const SizedBox(width: 10),
+            Text(
+              widget.title,
+              style: const TextStyle(
+                color: Colors.black26,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
       ),
