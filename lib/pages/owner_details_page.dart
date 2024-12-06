@@ -23,7 +23,7 @@ class OwnerDetailsPage extends StatelessWidget {
             Text('Telephone: ${owner.telephone}',
                 style: TextStyle(fontSize: 18)),
             Text(
-              'Pets: ${owner.pets.join(", ")}', // Join list elements into a string
+              'Pets: ${owner.pets.join(", ")}',
               style: TextStyle(fontSize: 18),
             ),
           ],
