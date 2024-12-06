@@ -35,9 +35,7 @@ class _FindOwnerPageState extends State<FindOwner> {
     final query = _searchController.text.toLowerCase();
     setState(() {
       filteredOwners = owners.where((owner) {
-        return owner.name.toLowerCase().contains(query) ||
-            owner.city.toLowerCase().contains(query) ||
-            owner.telephone.toLowerCase().contains(query);
+        return owner.name.toLowerCase().contains(query);
       }).toList();
     });
   }
