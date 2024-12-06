@@ -30,8 +30,13 @@ class _VeterinarianPageState extends State<VeterinarianPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Veterinarians'),
-        centerTitle: true,
+        title: const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Veterinarians',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
       body: vets.isEmpty
           ? const Center(child: CircularProgressIndicator())

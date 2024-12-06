@@ -52,8 +52,13 @@ class _FindOwnerPageState extends State<FindOwner> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Find Owner'),
-        centerTitle: true,
+        title: const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Find Owner',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
       body: Column(
         children: [
