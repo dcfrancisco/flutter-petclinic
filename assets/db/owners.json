@@ -4,20 +4,26 @@
         "address": "110 W. Liberty St.",
         "city": "Madison",
         "telephone": "6085551023",
-        "pets": "Leo"
+        "pets": [
+            "Leo"
+        ]
     },
     {
         "name": "Betty Davis",
         "address": "638 Cardinal Ave.",
         "city": "Sun Prairie",
         "telephone": "6085551749",
-        "pets": "Basil"
+        "pets": [
+            "Basil"
+        ]
     },
     {
         "name": "Eduardo Rodriguez",
         "address": "2693 Commerce St.",
         "city": "McFarland",
         "telephone": "6085558763",
-        "pets": "Jewel, Rosy"
+        "pets": [
+            "Jewel, Rosy"
+        ]
     }
 ]

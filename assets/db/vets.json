@@ -1,0 +1,18 @@
+{
+    "vets": [
+        {
+            "id": 1,
+            "first_name": "James",
+            "last_name": "Carter",
+            "specialties": []
+        },
+        {
+            "id": 2,
+            "first_name": "Helen",
+            "last_name": "Leary",
+            "specialties": [
+                "Radiology"
+            ]
+        }
+    ]
+}
