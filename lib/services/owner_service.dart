@@ -6,7 +6,8 @@ class OwnerService {
   Future<List<Owner>> fetchOwners() async {
     try {
       // Load JSON from assets
-      final String response = await rootBundle.loadString('assets/owners.json');
+      final String response =
+          await rootBundle.loadString('assets/db/owners.json');
       final List<dynamic> data = json.decode(response);
 
       return data.map((json) => Owner.fromJson(json)).toList();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_petclinic/pages/find_owner.dart';
 import 'package:flutter_petclinic/pages/home.dart';
+import 'package:flutter_petclinic/pages/veterination.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -15,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
     const FindOwner(),
-    const Center(child: Text('Veterinarian')),
+    const VeterinarianPage(),
   ];
 
   int _selectedIndex = 0;
