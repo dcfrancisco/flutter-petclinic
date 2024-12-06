@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_petclinic/controllers/owner_controller.dart';
+import 'package:flutter_petclinic/models/owner.dart';
+import 'package:flutter_petclinic/pages/owner_details_page.dart';
 
 class FindOwner extends StatefulWidget {
   const FindOwner({super.key});
@@ -8,22 +11,35 @@ class FindOwner extends StatefulWidget {
 }
 
 class _FindOwnerPageState extends State<FindOwner> {
+  final OwnerController _controller = OwnerController();
   final TextEditingController _searchController = TextEditingController();
-  List<String> owners = [
-    'John Doe',
-    'Jane Smith',
-    'Michael Johnson',
-    'Emily Davis',
-    'Sarah Brown',
-  ];
-  List<String> filteredOwners = [];
+  List<Owner> owners = [];
+  List<Owner> filteredOwners = [];
 
   @override
   void initState() {
     super.initState();
-    // Initially show all owners
-    filteredOwners = owners;
+    _loadOwners();
     _searchController.addListener(_filterOwners);
+  }
+
+  Future<void> _loadOwners() async {
+    final fetchedOwners = await _controller.getOwners();
+    setState(() {
+      owners = fetchedOwners;
+      filteredOwners = fetchedOwners;
+    });
+  }
+
+  void _filterOwners() {
+    final query = _searchController.text.toLowerCase();
+    setState(() {
+      filteredOwners = owners.where((owner) {
+        return owner.name.toLowerCase().contains(query) ||
+            owner.city.toLowerCase().contains(query) ||
+            owner.telephone.toLowerCase().contains(query);
+      }).toList();
+    });
   }
 
   @override
@@ -32,36 +48,21 @@ class _FindOwnerPageState extends State<FindOwner> {
     super.dispose();
   }
 
-  void _filterOwners() {
-    String query = _searchController.text.toLowerCase();
-    setState(() {
-      filteredOwners =
-          owners.where((owner) => owner.toLowerCase().contains(query)).toList();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Find Owner'),
+        centerTitle: true,
+      ),
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Find Owner',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               controller: _searchController,
               decoration: const InputDecoration(
                 labelText: 'Last Name',
-                hintText: 'Search for an owner',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.search),
               ),
@@ -69,25 +70,33 @@ class _FindOwnerPageState extends State<FindOwner> {
           ),
           Expanded(
             child: filteredOwners.isEmpty
-                ? const Center(
-                    child: Text(
-                      'No owners found',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  )
+                ? const Center(child: Text('No owners found'))
                 : ListView.builder(
                     itemCount: filteredOwners.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(filteredOwners[index]),
-                        onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Selected ${filteredOwners[index]}'),
-                            ),
-                          );
-                        },
+                      final owner = filteredOwners[index];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 16),
+                        child: ListTile(
+                          title: Text(owner.name),
+                          subtitle: Text(
+                            'Address: ${owner.address}\n'
+                            'City: ${owner.city}\n'
+                            'Telephone: ${owner.telephone}\n'
+                            'Pets: ${owner.pets.join(", ")}',
+                          ),
+                          isThreeLine: true,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    OwnerDetailsPage(owner: owner),
+                              ),
+                            );
+                          },
+                        ),
                       );
                     },
                   ),
