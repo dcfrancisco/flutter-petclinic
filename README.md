@@ -41,8 +41,10 @@ This project is a **work in progress** and is under active development. Future p
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repository/flutter_petclinic.git
+   git clone https://github.com/dcfrancisco/flutter-petclinic.git flutter_petclinic
+   
    cd flutter_petclinic
+   ```
 
 2. Install dependencies:
    ```bash

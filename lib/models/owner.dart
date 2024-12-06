@@ -19,7 +19,7 @@ class Owner {
       address: json['address'],
       city: json['city'],
       telephone: json['telephone'],
-      pets: List<String>.from(json['pets'] ?? []), // Parse pets as List<String>
+      pets: List<String>.from(json['pets'] ?? []),
     );
   }
 
