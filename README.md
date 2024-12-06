@@ -41,7 +41,7 @@ This project is a **work in progress** and is under active development. Future p
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/dcfrancisco/flutter-petclinic.git flutter_petclinic
+   git clone https://github.com/dcfrancisco/flutter_petclinic.git 
    
    cd flutter_petclinic
    ```
