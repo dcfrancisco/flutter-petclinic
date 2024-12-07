@@ -13,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static final List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
     const FindOwner(),
     const VeterinarianPage(),
@@ -47,25 +47,49 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               widget.title,
               style: const TextStyle(
-                color: Colors.black26,
+                color: Colors.black54,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
       ),
-      body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.people_alt), label: 'Owner'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_hospital),
-            label: 'Veterinarian',
+      body: _widgetOptions[_selectedIndex],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
           ),
-        ],
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: const Offset(0, -1),
+                ),
+              ],
+            ),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+              selectedItemColor: const Color.fromARGB(255, 2, 125, 113),
+              unselectedItemColor: Colors.grey,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.people_alt), label: 'Owner'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.local_hospital), label: 'Veterinarian'),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
