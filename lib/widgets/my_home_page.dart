@@ -58,12 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _widgetOptions[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
         child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
