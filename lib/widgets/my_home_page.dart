@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_petclinic/pages/find_owner.dart';
 import 'package:flutter_petclinic/pages/home.dart';
@@ -75,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             child: BottomNavigationBar(
+              backgroundColor: const Color(0xFF34302D),
               type: BottomNavigationBarType.fixed,
               currentIndex: _selectedIndex,
               onTap: _onItemTapped,
