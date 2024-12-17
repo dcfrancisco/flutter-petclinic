@@ -28,6 +28,8 @@ flutter:
 
 
   assets: 
+    - assets/db/vets.json
+    - assets/db/owners.json
     - assets/images/pets.png 
     - assets/images/pets_no_bg.png
     

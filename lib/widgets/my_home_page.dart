@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _widgetOptions[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: Container(
@@ -83,9 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.people_alt), label: 'Owner'),
+                  icon: Icon(Icons.people_alt),
+                  label: 'Owner',
+                ),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.local_hospital), label: 'Veterinarian'),
+                  icon: Icon(Icons.local_hospital),
+                  label: 'Veterinarian',
+                ),
               ],
             ),
           ),
