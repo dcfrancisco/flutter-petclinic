@@ -26,11 +26,11 @@ class CustomNavBar extends StatelessWidget {
         bottom: 50,
       ),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 27, 19, 16),
+        color: const Color(0xFF34302D),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withAlpha((0.1 * 255).toInt()),
             blurRadius: 20,
             spreadRadius: 10,
             offset: const Offset(0, 10),
