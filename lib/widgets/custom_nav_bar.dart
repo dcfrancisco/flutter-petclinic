@@ -12,21 +12,21 @@ class CustomNavBar extends StatelessWidget {
     required this.currentIndex,
     required this.onTap,
     required this.navItems,
-    this.selectedItemColor = Colors.blue,
-    this.unselectedItemColor = Colors.grey,
+    this.selectedItemColor = Colors.blue, // Default selected color
+    this.unselectedItemColor = Colors.grey, // Default unselected color
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 65,
       margin: const EdgeInsets.only(
         right: 24,
         left: 24,
         bottom: 50,
       ),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
+        color: const Color.fromARGB(255, 45, 21, 13),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -46,46 +46,24 @@ class CustomNavBar extends StatelessWidget {
 
           return GestureDetector(
             onTap: () => onTap(index),
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: isSelected
-                  ? BoxDecoration(
-                      color: selectedItemColor.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(10),
-                    )
-                  : null,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    item['icon'],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  item['icon'],
+                  color: isSelected ? selectedItemColor : unselectedItemColor,
+                  size: 24, // Consistent icon size
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  item['label'],
+                  style: TextStyle(
                     color: isSelected ? selectedItemColor : unselectedItemColor,
-                    size: isSelected ? 30 : 24,
+                    fontSize: 10, // Smaller font size like BottomNavigationBar
+                    fontWeight: FontWeight.normal,
                   ),
-                  const SizedBox(height: 5),
-                  Text(
-                    item['label'],
-                    style: TextStyle(
-                      color:
-                          isSelected ? selectedItemColor : unselectedItemColor,
-                      fontSize: isSelected ? 14 : 12,
-                      fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.normal,
-                    ),
-                  ),
-                  if (isSelected)
-                    Container(
-                      margin: const EdgeInsets.only(top: 5),
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        color: selectedItemColor,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         }).toList(),
