@@ -26,7 +26,7 @@ class CustomNavBar extends StatelessWidget {
         bottom: 50,
       ),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 45, 21, 13),
+        color: const Color.fromARGB(255, 27, 19, 16),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -46,24 +46,29 @@ class CustomNavBar extends StatelessWidget {
 
           return GestureDetector(
             onTap: () => onTap(index),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item['icon'],
-                  color: isSelected ? selectedItemColor : unselectedItemColor,
-                  size: 24, // Consistent icon size
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  item['label'],
-                  style: TextStyle(
+            child: Container(
+              width: 70, // Ensure sufficient tap area
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    item['icon'],
                     color: isSelected ? selectedItemColor : unselectedItemColor,
-                    fontSize: 10, // Smaller font size like BottomNavigationBar
-                    fontWeight: FontWeight.normal,
+                    size: 24, // Consistent icon size
                   ),
-                ),
-              ],
+                  const SizedBox(height: 4),
+                  Text(
+                    item['label'],
+                    style: TextStyle(
+                      color:
+                          isSelected ? selectedItemColor : unselectedItemColor,
+                      fontSize: 10, // Smaller font size
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         }).toList(),
