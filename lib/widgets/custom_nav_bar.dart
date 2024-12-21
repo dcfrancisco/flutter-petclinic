@@ -47,7 +47,8 @@ class CustomNavBar extends StatelessWidget {
           return GestureDetector(
             onTap: () => onTap(index),
             child: Container(
-              width: 70, // Ensure sufficient tap area
+              height: isSelected ? 65 : 50,
+              width: 70,
               alignment: Alignment.center,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
