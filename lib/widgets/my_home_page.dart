@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_petclinic/pages/find_owner.dart';
 import 'package:flutter_petclinic/pages/home.dart';
 import 'package:flutter_petclinic/pages/veterination.dart';
-import 'package:flutter_petclinic/widgets/custom_nav_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -62,12 +61,43 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: _widgetOptions[_selectedIndex],
-      bottomNavigationBar: CustomNavBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        navItems: navItems,
-        selectedItemColor: const Color.fromARGB(255, 2, 125, 113),
-        unselectedItemColor: Colors.grey,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: const Offset(0, -1),
+                ),
+              ],
+            ),
+            child: BottomNavigationBar(
+              backgroundColor: const Color(0xFF34302D),
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+              selectedItemColor: const Color.fromARGB(255, 2, 125, 113),
+              unselectedItemColor: Colors.grey,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.people_alt),
+                  label: 'Owner',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.local_hospital),
+                  label: 'Veterinarian',
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
